@@ -1,0 +1,177 @@
+<html lang="it">
+<head>
+    <title>Esercizi Js - Raggioli Alessio</title>
+    <meta charset="utf-8" />
+
+
+</head>
+<body>
+
+
+    <script>
+
+        function somma() {// ESERCIZIO NUMERO 1
+            var array = [1, 2, 3, 4, -1, 5, 6];
+            var sum = 0;
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] < 0) {
+                    break;
+                }
+                sum += array[i];
+
+            }
+            return sum;
+        }
+
+        //alert(somma());
+
+
+        function sommaDispari(n) { //ESERCIZIO NUMERO 2
+            var sum = 0;
+            //var n = prompt(n);
+            for (var i = 1; i <= n; i += 2) {
+                sum += i;
+            }
+            return sum;
+        }
+
+        //alert(sommaDispari());
+
+
+        function sommaArray() { //ESERCIZIO NUMERO 3
+            var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            var somma = 0;
+            var media = 0;
+            for (var i = 0; i < array.length; i++) {
+                somma += array[i];
+
+            }
+            media = somma / array.length;
+            return media;
+        }
+        //alert(sommaArray());
+
+
+        function sommaIntervallo(a, b) { //ESERCIZIO NUMERO 4
+            var sum = 0;
+
+            var c = 0;
+            if (b < a) {
+                c = a;
+                a = b;
+                b = c;
+            }
+
+            for (a; a <= b; a++) {
+                sum += a;
+            }
+
+            return sum;
+        }
+
+        alert(sommaIntervallo(3, 5));
+
+
+        function sommaPiù(a, b) { // ESERCIZIO NUMERO 5
+            var somma = 0;
+            for (var i = 0; i < b; i++) {
+                somma += a;
+            }
+            return somma;
+
+        }
+        //alert(sommaPiù(3,3));
+
+
+        function resto(a, b) { // ESERCIZIO NUMERO 6
+            var c = 0;
+            var ris = 0;
+            for (a; a >= b; a -= b) {
+                c = a - b;
+                ris++;
+            }
+
+            return ris + " con il resto di " + c;
+        }
+
+        alert(resto(5, 2));
+
+        function potenza(a, b) { //ESERCIZIO NUMERO 7
+            if (b == 0) return 1;
+            if (b == 1) return a;
+            var ris = a;
+            for (var i = 2; i <= b; i++) {
+                ris = sommaPiù(ris, a);
+            }
+            return ris;
+        }
+        //alert(potenza(2,3));
+
+        function matrix(array) { //ESERCIZIO NUMERO 8
+            var matrice = [[]];
+            var conta = 0;
+            var matriceRiga = Math.sqrt(array.length);
+            for (var i = 0; i < matriceRiga; i++) {
+                matrice[i] = [];
+                for (var j = 0; j < matriceRiga; j++) {
+                    matrice[i][j] = array[conta];
+                    conta++;
+                }
+            }
+            return matrice;
+
+
+        }
+        //alert(matrix([1,2,3,4,5,6,7,8,9]));
+
+        function invert(array) { //ESERCIZIO NUMERO 9
+            var lista = [];
+            var lunghezza = array.length;
+            for (var i = 0; i < array.length; i++) {
+                lunghezza -= 1;
+                lista[lunghezza] = array[i];
+            }
+
+            return lista;
+        }
+        //alert(invert([2,5,8]));
+
+        function replicate(a, n) { //ESERCIZIO NUMERO 10
+            var array = [];
+            for (var i = 0; i < n; i++) {
+                array[i] = a;
+            }
+
+            return array;
+
+        }
+        //alert(replicate(3,4));
+
+
+        function ordinate(array) { //ESERCIZIO NUMERO 11
+
+            var lista = [];
+            var conta = 0;
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] % 2 != 0) {
+                    lista[conta] = array[i];
+                    conta++;
+                }
+            }
+            for (var j = 0; j < array.length; j++) {
+                if (array[j] % 2 == 0) {
+                    lista[conta] = array[j];
+                    conta++;
+                }
+            }
+            return lista;
+        }
+        alert(ordinate([2, 5, 1, 8]));
+    </script>
+
+</body>
+</html>
+
+
+
+
