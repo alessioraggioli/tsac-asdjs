@@ -19,7 +19,7 @@
         function sommaDispari(n) { //It2
             var sum = 0;
           
-            for (var i = 1; i <= n; i++) {
+            for (var i = 0; i < n; i++) {
                 sum += 1 + 2 * i;
             }
             return sum;
@@ -201,11 +201,11 @@ function ex_10_I(a,n){
 		        } else {
 		            return 2 * n - 1 + sD(n - 1);
 		        }
-       
+		    }
 		    function ex_2_R(s){
 		        return sD(s);
 		    }
-		   
+		    
 
 
 
