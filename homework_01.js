@@ -19,8 +19,8 @@
         function sommaDispari(n) { //It2
             var sum = 0;
           
-            for (var i = 1; i <= n; i += 2) {
-                sum += i;
+            for (var i = 1; i <= n; i++) {
+                sum += 1 + 2 * i;
             }
             return sum;
         }
@@ -183,141 +183,146 @@ function ex_10_I(a,n){
 		}
 
 
-        function rSTN(array, a, b) { //Ri1
+		function mutuarSTN(array) { //Ri1
+		    return rSTN(array, 0, 0);
+		}
+        function rSTN(array,a,b) { 
             if (a == array.length || array[a] < 0) return b;
             return rSTN(array, a + 1, b + array[a]);
         }
       
-		function ex_1_R(array, a, b){
-		return rSTN(array, a, b);
-		}
-
-
-        function sD(n, i, s) {  //Ri2
-            if (i > n) return s;
-            return sD(n, i + 2, s + i);
-        }
+		    function ex_1_R(array){
+		        return mutuarSTN(array);
+		    }
+		    
+		    function sD(n) {   //Ri2
+		        if (n == 0) {
+		            return 0;
+		        } else {
+		            return 2 * n - 1 + sD(n - 1);
+		        }
        
-	function ex_2_R(n, i, s){
-		return sD(n, i, s);
-		}
+		    function ex_2_R(s){
+		        return sD(s);
+		    }
+		   
 
 
 
-        function m(array, i, sum, medium) {  //Ri3
-            if (i > array.length) return medium;
-            return m(array, i + 1, sum + array[i], medium = sum / i);
+		    function m(array, i, sum, medium) {  //Ri3
+		        if (i > array.length) return medium;
+		        return m(array, i + 1, sum + array[i], medium = sum / i);
 
-        }
+		    }
      
-	 function ex_3_R(array, i, sum, medium){
-		return m(array, i, sum, medium);
-		}
+		    function ex_3_R(array, i, sum, medium){
+		        return m(array, i, sum, medium);
+		    }
 
-        function sIntB(b, a) { //Ri4
-            if (b < a) return sIntA(b, a, 0);
-            else {
-                return sIntA(a, b, 0);
-            }
-        }
-        function sIntA(a, b, sum) { 
-            if (a > b) return sum;
-            return sIntA(a + 1, b, sum + a);
-            if (b < a) return sum;
-            return sInt(b + 1, a, sum + b);
-        }
+		    function sIntB(b, a) { //Ri4
+		        if (b < a) return sIntA(b, a, 0);
+		        else {
+		            return sIntA(a, b, 0);
+		        }
+		    }
+		    function sIntA(a, b, sum) { 
+		        if (a > b) return sum;
+		        return sIntA(a + 1, b, sum + a);
+		        if (b < a) return sum;
+		        return sInt(b + 1, a, sum + b);
+		    }
 		
-		 function ex_4_R(b,a){
-		return sIntB(b, a)
-		}
+		    function ex_4_R(b,a){
+		        return sIntB(b, a)
+		    }
       
-		function Per(a,b){ //Ri5
-		return sPer(a, b, 0, 0);
-		}
+		    function Per(a,b){ //Ri5
+		        return sPer(a, b, 0, 0);
+		    }
         
-        function sPer(a,b,i,sum){ 
-        if(i>=b) return sum;
-		return sPer(a,b,i+1,sum+a);
+		    function sPer(a,b,i,sum){ 
+		        if(i>=b) return sum;
+		        return sPer(a,b,i+1,sum+a);
 		
-        }
-		function ex_5_R(a,b){
-		return sPer(a,b);
-		}
+		    }
+		    function ex_5_R(a,b){
+		        return sPer(a,b);
+		    }
       
 	  
-        function sDiv(a,b,sum){  //Ri6
-		if(a<1) return a +" resto di 1 "; 
-		if(a==b) return "1 resto di 0";
-		if(a<b) return sum +" resto "+ a;
-		return sDiv(a-b,b,sum+1);
+		    function sDiv(a,b,sum){  //Ri6
+		        if(a<1) return a +" resto di 1 "; 
+		        if(a==b) return "1 resto di 0";
+		        if(a<b) return sum +" resto "+ a;
+		        return sDiv(a-b,b,sum+1);
 		
-		}
+		    }
 	 
-	 function ex_6_R(a,b,sum){
-		return  sDiv(a,b,sum);
-		}
+		    function ex_6_R(a,b,sum){
+		        return  sDiv(a,b,sum);
+		    }
 	
-		function sPot(a,b,i,sum){ //Ri7
-		if(a==1) return 1;
-		if (b==0) return 1;
-		if(i>=b) return sum;
-		sum = Per(sum,a);
-		return sPot(a,b,i+1,sum);
+		    function sPot(a,b,i,sum){ //Ri7
+		        if(a==1) return 1;
+		        if (b==0) return 1;
+		        if(i>=b) return sum;
+		        sum = Per(sum,a);
+		        return sPot(a,b,i+1,sum);
 		
-	}
+		    }
 
-	  function ex_7_R(a,b,i,sum){
-		return  sPot(a,b,i,sum);
-		}
+		    function ex_7_R(a,b,i,sum){
+		        return  sPot(a,b,i,sum);
+		    }
 	
-	function change(array,i,array2){ //Ri9
+		    function change(array,i,array2){ //Ri9
 	
-	if(i>=array.length) return array2;
-    array2[i] = array[array.length - 1 - i];
-	return change(array,i+1,array2);
-	}
+		        if(i>=array.length) return array2;
+		        array2[i] = array[array.length - 1 - i];
+		        return change(array,i+1,array2);
+		    }
 	
-	 function ex_9_R(array,i,array2){
-		return  change(array,i,array2);
-		}
+		    function ex_9_R(array,i,array2){
+		        return  change(array,i,array2);
+		    }
 	
-	function createArray(array,a,n,i){ //Ri10
-	if(i>=n) return array;
-	array[i]=a;
-	return createArray(array,a,n,i+1);
+		    function createArray(array,a,n,i){ //Ri10
+		        if(i>=n) return array;
+		        array[i]=a;
+		        return createArray(array,a,n,i+1);
 
-	}
+		    }
 
-	  function ex_10_R(array,a,n,i){
-		return  createArray(array,a,n,i);
-		}
+		    function ex_10_R(array,a,n,i){
+		        return  createArray(array,a,n,i);
+		    }
 	
-	function soloD(array,i,k,array2){ //Ri11
-	if(i>array.length) return array2;
-	if(array[i]%2!=0){
-	array2[k]=array[i];
-	k++;
-	}
+		    function soloD(array,i,k,array2){ //Ri11
+		        if(i>array.length) return array2;
+		        if(array[i]%2!=0){
+		            array2[k]=array[i];
+		            k++;
+		        }
 	
-	return soloD(array,i+1,k,array2);
-	}
+		        return soloD(array,i+1,k,array2);
+		    }
 	
-	function soloP(array,i,k,array2){
-	if(i>array.length) return array2;
-	if(array[i]%2==0){
-	array2[k]=array[i];
-	k++;
-	}
+		    function soloP(array,i,k,array2){
+		        if(i>array.length) return array2;
+		        if(array[i]%2==0){
+		            array2[k]=array[i];
+		            k++;
+		        }
 	
-	return soloP(array,i+1,k,array2);
-	}
-	function sumDandP(array){
-	return soloD(array,0,0,[])+soloP(array,0,0,[]);
-	}
+		        return soloP(array,i+1,k,array2);
+		    }
+		    function sumDandP(array){
+		        return soloD(array,0,0,[])+soloP(array,0,0,[]);
+		    }
 
-     function ex_11_R(array){
-		return  sumDandP(array);
-		}
+		    function ex_11_R(array){
+		        return  sumDandP(array);
+		    }
 
 
 
