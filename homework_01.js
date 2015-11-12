@@ -207,17 +207,20 @@ function ex_10_I(a,n){
 		    }
 		    
 
+		    function mutuaM(array) { //Ri3
+		        return m(array, 0, 0, 0);
+		    }
 
-
-		    function m(array, i, sum, medium) {  //Ri3
+		    function m(array, i, sum, medium) {  
 		        if (i > array.length) return medium;
 		        return m(array, i + 1, sum + array[i], medium = sum / i);
 
 		    }
      
-		    function ex_3_R(array, i, sum, medium){
-		        return m(array, i, sum, medium);
+		    function ex_3_R(array){
+		        return mutuaM(array);
 		    }
+		      
 
 		    function sIntB(b, a) { //Ri4
 		        if (b < a) return sIntA(b, a, 0);
@@ -233,8 +236,10 @@ function ex_10_I(a,n){
 		    }
 		
 		    function ex_4_R(b,a){
-		        return sIntB(b, a)
+		        return sIntB(b, a);
 		    }
+		    
+
       
 		    function Per(a,b){ //Ri5
 		        return sPer(a, b, 0, 0);
@@ -249,19 +254,23 @@ function ex_10_I(a,n){
 		        return sPer(a,b);
 		    }
       
-	  
+		    function mutuasDiv(a, b) {
+		        return sDiv(a, b, 0);
+		    }
 		    function sDiv(a,b,sum){  //Ri6
-		        if(a<1) return a +" resto di 1 "; 
-		        if(a==b) return "1 resto di 0";
-		        if(a<b) return sum +" resto "+ a;
+		        if (a < b) return sum + " resto " + a;
+		        
 		        return sDiv(a-b,b,sum+1);
 		
 		    }
 	 
-		    function ex_6_R(a,b,sum){
-		        return  sDiv(a,b,sum);
+		    function ex_6_R(a,b){
+		        return mutuasDiv(a,b);
 		    }
-	
+		    
+		    function mutuasPot(a, b) {
+		        return sPot(a, b, 0, 1);
+		    }
 		    function sPot(a,b,i,sum){ //Ri7
 		        if(a==1) return 1;
 		        if (b==0) return 1;
@@ -271,8 +280,12 @@ function ex_10_I(a,n){
 		
 		    }
 
-		    function ex_7_R(a,b,i,sum){
-		        return  sPot(a,b,i,sum);
+		    function ex_7_R(a, b) {
+		        return mutuasPot(a, b);
+		    }
+
+		    function mutuaChange(array) {
+		        return change(array, 0, []);
 		    }
 	
 		    function change(array,i,array2){ //Ri9
@@ -282,20 +295,24 @@ function ex_10_I(a,n){
 		        return change(array,i+1,array2);
 		    }
 	
-		    function ex_9_R(array,i,array2){
-		        return  change(array,i,array2);
+		    function ex_9_R(array){
+		        return mutuaChange(array);
 		    }
-	
-		    function createArray(array,a,n,i){ //Ri10
+		    
+		    function mutuacA(a,b) { //Ri10
+		        return createArray([],a,b,0);
+		    }
+		    function createArray(array,a,n,i){ 
 		        if(i>=n) return array;
 		        array[i]=a;
 		        return createArray(array,a,n,i+1);
 
 		    }
 
-		    function ex_10_R(array,a,n,i){
-		        return  createArray(array,a,n,i);
+		    function ex_10_R(a,b){
+		        return  mutuacA(a,b);
 		    }
+		    
 	
 		    function soloD(array,i,k,array2){ //Ri11
 		        if(i>array.length) return array2;
