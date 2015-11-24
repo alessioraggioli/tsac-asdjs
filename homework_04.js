@@ -1,3 +1,23 @@
+
+    function Stack() {
+        this.array = [];
+    }
+
+    Stack.prototype.push = function (insert) {
+        this.array.push(insert);
+    }
+    Stack.prototype.pop = function () {
+        return this.array.pop();
+    }
+    Stack.prototype.peek = function () {
+        return this.array[this.array.length - 1];
+    }
+    Stack.prototype.isEmpty = function () {
+        return this.array.length == 0;
+    }
+
+
+
     function rpn(stringa) {
         var stack = new Stack();
         var z = stringa.split(" ");
@@ -11,7 +31,7 @@
                     break;
                 case "-":
                     ris = stack.pop();
-                    ris -= stack.pop();
+                    ris = stack.pop() - ris;
                     stack.push(ris);
                     break;
                 case "*":
@@ -21,7 +41,7 @@
                     break;
                 case "/":
                     ris = stack.pop();
-                    ris /= stack.pop();
+                    ris = stack.pop() / ris;
                     stack.push(ris);
                     break;
                 case "^":
