@@ -89,7 +89,7 @@
         Tree (15 punti)
         Si implementi un albero binario di ricerca in javascript e si inseriscano gli elementi contenuti nell’array A[0..n-1], ottenuto da initialArray(), nell’ordine dall’indice 0 all’indice n-1.
         Si calcoli, mediante l’implementazione di un algoritmo ricorsivo, il valore massimo all’interno dell’albero.
-        */sS
+        */
 
         /*Esercizio 3*/
 
@@ -97,8 +97,8 @@
             var array = stringa.split(' ');
             var sS = new Stack();
             var sV = new Stack();
-            var opA;
-            var opB;
+            var operA;
+            var operB;
             for (var i = 0; i < array.length; i++) {
                 if (array[i] != ')' && array[i] != '(') {
                     if (array[i] == '+' || array[i] == '-' || array[i] == '*' || array[i] == '/')
@@ -107,20 +107,21 @@
                         sV.push(parseInt(array[i]));
                 }
                 else if (array[i] == ')') {
-                    opA = sV.pop();
-                    opB = sV.pop();
+                    operA = sV.pop();
+                    operB = sV.pop();
                     switch (sS.pop()) {
-                        case '+':
-                            sV.push(opA + opB);
-                            break;
-                        case '-':
-                            sV.push(opB - opA);
-                            break;
+                        
                         case '*':
-                            sV.push(opA * opB);
+                            sV.push(operB * operA);
                             break;
                         case '/':
-                            sV.push(opB / opA);
+                            sV.push(operB / operA);
+                            break;
+                        case '+':
+                            sV.push(operB + operA);
+                            break;
+                        case '-':
+                            sV.push(operB - operA);
                             break;
                     }
                 }
